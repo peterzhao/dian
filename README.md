@@ -1,1 +1,1 @@
-A spike react application running Google cloud. Cloud build is used.
+A spike react application running Google cloud.
