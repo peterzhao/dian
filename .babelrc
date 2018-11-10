@@ -4,6 +4,11 @@
     "stage-1",
     "react"
   ],
+  "env": {
+    "test": {
+      "presets": [["env"], "stage-1", "react"]
+    }
+  },
   "plugins": [
     "transform-runtime"
   ]

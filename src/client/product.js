@@ -1,6 +1,5 @@
 import React from 'react'
 import createClass from 'create-react-class'
-import styles from './product.css'
 
 export default createClass({
   getInitialState() {
@@ -16,11 +15,11 @@ export default createClass({
   },
 
   render() {
-    const buttonClass = this.state.liked ? styles.active : styles.inactive
+    const buttonClass = this.state.liked ? 'active' : 'inactive'
     return (
-      <div className='product'>
-        <span>{this.props.name}</span>
-        <span>{this.props.price}</span>
+      <div className={'product'}>
+        <span className={'name'}>{this.props.name}</span>
+        <span className={'price'}>{this.props.price}</span>
         <button onClick={this.toggleLiked} className={buttonClass}>♥</button>
       </div>
     )
