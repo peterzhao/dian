@@ -10,7 +10,7 @@
     "server": "nodemon src/server/index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test:unit": "jest",
-    "test:it": "mocha 'src/it/**/*.test.js'"
+    "test:integration": "mocha 'integration-tests/**/*.test.js'"
   },
   "author": "",
   "license": "ISC",
@@ -48,6 +48,6 @@
   },
   "jest": {
     "setupFiles": ["./src/test-setup.js"],
-    "testPathIgnorePatterns": ["<rootDir>/src/it"]
+    "testPathIgnorePatterns": ["<rootDir>/integration-tests"]
   }
 }
