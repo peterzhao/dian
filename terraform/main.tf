@@ -1,8 +1,10 @@
 provider "google" {
-  region  = "us-central1"
+  region  = "us-east1"
+  project     = "dian-8888"
 }
 
-resource "google_app_engine_application" "app" {
-  project     = "terraform-spike"
-  location_id = "us-central"
+resource "google_container_cluster" "primary" {
+  name               = "dian-cluster"
+  zone               = "us-east1-b"
+  initial_node_count = 1
 }
