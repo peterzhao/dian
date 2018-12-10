@@ -1,18 +1,15 @@
-import React from 'react'
-import createClass from 'create-react-class'
+import React, { Component } from 'react'
 
-export default createClass({
-  getInitialState() {
-   return {
-     liked: false
-   }
-  },
-  
-  toggleLiked() {
+export default class Prodcut extends Component {
+  state = {
+    liked: false
+  }
+
+  toggleLiked = () => {
     this.setState({
       liked: !this.state.liked
     })
-  },
+  }
 
   render() {
     const buttonClass = this.state.liked ? 'active' : 'inactive'
@@ -24,5 +21,5 @@ export default createClass({
       </div>
     )
   }
-})
+}
 

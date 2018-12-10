@@ -1,9 +1,8 @@
-import React from 'react'
-import createClass from 'create-react-class'
+import React, { Component } from 'react'
 import Product from './product'
 
-export default createClass({
-  getData()  {
+export default class ProductList extends Component {
+  getData = () => {
     return [
     {
       name: 'Book Shelf',
@@ -21,14 +20,14 @@ export default createClass({
       name: 'Nike Sports Shoes',
       price: '99.9'
     }
-  ]},
+  ]}
 
   render() {
-    const products = this.getData().map(p => <Product name={p.name} price={p.price} />)
+    const products = this.getData().map((p, i) => <Product name={p.name} price={p.price} key={i}/>)
     return (
       <div className='products'>
         {products}
       </div>
     )
   }
-})
+}
