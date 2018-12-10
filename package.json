@@ -32,7 +32,7 @@
     "html-webpack-plugin": "^3.2.0",
     "jest": "^23.6.0",
     "mocha": "^5.2.0",
-    "nodemon": "^1.18.5",
+    "nodemon": "^1.18.7",
     "regenerator-runtime": "^0.12.1",
     "style-loader": "^0.23.1",
     "webpack": "^4.20.2",
@@ -47,7 +47,11 @@
     "react-dom": "^16.5.2"
   },
   "jest": {
-    "setupFiles": ["./src/test-setup.js"],
-    "testPathIgnorePatterns": ["<rootDir>/integration-tests"]
+    "setupFiles": [
+      "./src/test-setup.js"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/integration-tests"
+    ]
   }
 }
