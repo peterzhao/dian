@@ -1,3 +1,5 @@
+import { types } from '../actions/product'
+
 const initialState = {
   products: [
     {
@@ -33,16 +35,6 @@ const toggleProduct = (products, index) => {
     }
     return product
   })
-}
-
-export const types = {
-  TOGGLE_LIKE: 'TOGGLE_LIKE'
-}
-
-export const actionCreators  = {
-  toggleLike: index => {
-    return { type: types.TOGGLE_LIKE, payload: index}
-  }
 }
 
 export const reducer = (state = initialState, action) => {
