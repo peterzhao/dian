@@ -9,6 +9,7 @@
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon src/server/index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "npm run test:unit",
     "test:unit": "jest",
     "test:integration": "mocha 'integration-tests/**/*.test.js'"
   },
@@ -55,6 +56,8 @@
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/integration-tests"
-    ]
+    ],
+    "testFileExtensions": "**/*.test.js",
+    "testEnvironment": "node"
   }
 }
