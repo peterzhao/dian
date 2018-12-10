@@ -1,23 +1,17 @@
 import React, { Component } from 'react'
 
 export default class Prodcut extends Component {
-  state = {
-    liked: false
-  }
-
-  toggleLiked = () => {
-    this.setState({
-      liked: !this.state.liked
-    })
+  onToggleLiked = () => {
+    this.props.onToggleLiked(this.props.id)
   }
 
   render() {
-    const buttonClass = this.state.liked ? 'active' : 'inactive'
+    const buttonClass = this.props.liked ? 'active' : 'inactive'
     return (
       <div className={'product'}>
         <span className={'name'}>{this.props.name}</span>
         <span className={'price'}>{this.props.price}</span>
-        <button onClick={this.toggleLiked} className={buttonClass}>♥</button>
+        <button onClick={this.onToggleLiked} className={buttonClass}>♥</button>
       </div>
     )
   }

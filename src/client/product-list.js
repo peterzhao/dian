@@ -1,33 +1,38 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import Product from './product'
+import { actionCreators } from './reducer'
 
-export default class ProductList extends Component {
-  getData = () => {
-    return [
-    {
-      name: 'Book Shelf',
-      price: '212.5'
-    },
-    {
-      name: 'Rice Cooker',
-      price: '112.6'
-    },
-    {
-      name: 'Cup 7 - red',
-      price: '12.3'
-    },
-    {
-      name: 'Nike Sports Shoes',
-      price: '99.9'
+const mapStateToProps = (state, ownProps) => {
+  return {
+    products: state.products
+  }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onToggleLiked: (index) => {
+      dispatch(actionCreators.toggleLike(index))
     }
-  ]}
+  }
+}
 
+class ProductList extends Component {
   render() {
-    const products = this.getData().map((p, i) => <Product name={p.name} price={p.price} key={i}/>)
+    const { products } = this.props
+    const productList = products.map((p, i) => <Product
+      name={ p.name }
+      price={ p.price }
+      liked={ p.liked }
+      onToggleLiked={ this.props.onToggleLiked }
+      id={ i }
+      key={ i }/>)
     return (
       <div className='products'>
-        {products}
+        { productList }
       </div>
     )
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductList)
