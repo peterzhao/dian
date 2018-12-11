@@ -1,29 +1,11 @@
-import { types } from '../actions/product'
+import {
+  TOGGLE_LIKE,
+  FETCH_PRODUCTS,
+  REQUEST_PRODUCTS,
+  RECEIVE_PRODUCTS,
+  RECEIVE_ERROR
+} from '../actions/product'
 
-const initialState = {
-  products: [
-    {
-      name: 'Book Shelf',
-      price: '212.5',
-      liked: false
-    },
-    {
-      name: 'Rice Cooker',
-      price: '112.6',
-      liked: false
-    },
-    {
-      name: 'Cup 7 - red',
-      price: '12.3',
-      liked: false
-    },
-    {
-      name: 'Nike Sports Shoes',
-      price: '99.9',
-      liked: false
-    }
-  ]
-}
 
 const toggleProduct = (products, index) => {
   return products.map((product, i) => {
@@ -37,14 +19,32 @@ const toggleProduct = (products, index) => {
   })
 }
 
-export const reducer = (state = initialState, action) => {
+export const reducer = (state = { products: []}, action) => {
   const { products } = state
   const { type, payload } = action
   switch(type) {
-    case types.TOGGLE_LIKE:
+    case TOGGLE_LIKE:
       return {
         ...state,
         products: toggleProduct(products, payload)
+      }
+    case REQUEST_PRODUCTS:
+      return {
+        ...state,
+        requestIndicate: true
+      }
+    case RECEIVE_PRODUCTS:
+      return {
+        ...state,
+        requestIndicate: false,
+        error: null,
+        products: payload
+      }
+    case RECEIVE_ERROR:
+      return {
+        ...state,
+        requestIndicate: false,
+        error: payload
       }
   }
   return state
