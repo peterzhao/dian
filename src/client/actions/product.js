@@ -28,6 +28,6 @@ export const fetchProducts = () => {
     return axios.get('/api/products')
       .then(response => response.data)
       .then(data => dispatch(receiveProducts(data)))
-      .all(e => dispatch(receiveError(error)))
+      .catch(e => dispatch(receiveError(error)))
   }
 }
